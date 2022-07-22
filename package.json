@@ -5,9 +5,10 @@
   "homepage": "https://asthakri50.github.io/Hangman-frontend",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
+    "start": "webpack",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "build": "webpack --mode production"
   },
   "author": "Astha",
   "license": "ISC",
@@ -24,6 +25,7 @@
   },
   "devDependencies": {
     "gh-pages": "^4.0.0",
+    "html-webpack-plugin": "^5.5.0",
     "sass": "^1.52.0",
     "sass-loader": "^13.0.0",
     "webpack": "^5.72.1",

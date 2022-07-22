@@ -1,25 +1,37 @@
- module.exports = {
-    mode: "development" ,
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+module.exports = {
+    mode: "development",
     entry: "./App.js",
-    watch: true ,
+    watch: true,
     output: {
-        filename : "main.js"
+        path: path.resolve(__dirname, 'dist'), // change this
+        publicPath: '/',
+        filename: "App.js"
     },
-        module: {
-            rules: [ 
-                {
+    devServer: {
+        contentBase: "./dist",
+    },
+    module: {
+        rules: [
+            {
                 test: /\.js/,
                 loader: "babel-loader",
-                exclude: /node_modules/ ,
+                exclude: /node_modules/,
                 options: {
                     presets: ['@babel/preset-react']
                 }
             },
             {
                 test: /\.s[ac]ss/,
-                use: ['style-loader' , 'css-loader' ,'sass-loader'],
+                use: ['style-loader', 'css-loader', 'sass-loader'],
                 exclude: /node_modules/
             }
         ]
-    }
-}
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: path.resolve('./index.html'),
+        }),
+    ]
+};
