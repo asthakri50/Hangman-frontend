@@ -1,1 +1,1 @@
-# Hangman-frontend
+# Wordle Lite
