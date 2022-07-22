@@ -1,1 +1,1 @@
-# Wordle Lite
+# Hangman-fronend
